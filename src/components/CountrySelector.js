@@ -37,12 +37,12 @@ function CountrySelector() {
 
             <Row gutter={{xs: 8, sm: 16, md: 24, lg: 32}}>
 
-                <Col span={24}>
+                <Col>
 
                     <Card>
                         <div>
-                            <Row gutter={{xs: 8, sm: 16, md: 24, lg: 32}}>
-                                <Col span={6}>
+                            <Row gutter={[{xs: 8, sm: 16, md: 24, lg: 32}, 16]}>
+                                <Col span={{xs: 2, sm: 6, md: 8, lg: 12}}>
                                     <Select
                                         style={{width: 200}}
                                         showSearch={true}
@@ -83,8 +83,8 @@ function CountrySelector() {
                                   onSelect={code => setSelectedCountry(countries.iso3[code])} />*/}
                             {/*<h2>Currently Showing {getKeyByValue(countries.countries, getKeyByValue(countries.iso3, selectedCountry))}</h2>*/}
 
-                            <Row gutter={{xs: 8, sm: 16, md: 24, lg: 32}}>
-                                <Col span={24}>
+                            <Row >
+                                <Col>
                                     <CountryStats
                                         url={`https://covid19.mathdro.id/api/countries/${selectedCountry}`}></CountryStats>
                                     {/*<span>{console.log(getKeyByValue(countries.countries, selectedCountry))}</span>*/}

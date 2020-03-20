@@ -20,22 +20,22 @@ function CountryStats({url}) {
     return (
         <div>
 
-            <Row gutter={{xs: 8, sm: 16, md: 24, lg: 32}}>
+            <Row gutter={[{xs: 16, sm: 16, md: 24, lg: 32}, 16]}>
 
-                <Col span={6}>
+                <Col span={{xs: 12, sm: 12, md: 8, lg: 8}}>
                     <Card headStyle={{background: '#f0f2f5'}} title="Confirmed">
                         <span>{stats.confirmed.value}</span>
                     </Card>
                 </Col>
 
-                <Col span={6}>
+                <Col span={{xs: 12, sm: 12, md: 8, lg: 8}}>
                     <Card headStyle={{background: '#f0f2f5'}} title="Deaths">
                         <span>{stats.deaths.value}</span>
                     </Card>
                 </Col>
 
 
-                <Col span={6}>
+                <Col span={{xs: 12, sm: 12, md: 8, lg: 8}}>
                     <Card headStyle={{background: '#f0f2f5'}} title="Active">
                         <span>
                             {/*<GetActiveStats url={`${url}/confirmed`}/>*/}
@@ -44,7 +44,7 @@ function CountryStats({url}) {
                     </Card>
                 </Col>
 
-                <Col span={6}>
+                <Col span={{xs: 12, sm: 12, md: 8, lg: 8}}>
                     <Card headStyle={{background: '#f0f2f5'}} title="Recovered">
 
                         <span>{stats.recovered.value}</span>

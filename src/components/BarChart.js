@@ -33,7 +33,7 @@ function BarChart({confirmed, death, recovered}) {
             data,
             angleField: 'value',
             colorField: 'type',
-
+            responsive: true,
             title: {
                 visible: true,
                 position: 'left',

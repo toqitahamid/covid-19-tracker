@@ -21,8 +21,9 @@ function RecoveryRate({confirmed, death, recovered}) {
             max: 100,
             range: [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
             color: ['#39B8FF', '#52619B', '#43E089', '#C0EDF3'],
+            //height: 300,
+            //responsive: true,
 
-            height: 300,
 
             title: {
                 visible: true,
