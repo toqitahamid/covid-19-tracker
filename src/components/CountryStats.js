@@ -20,34 +20,34 @@ function CountryStats({url}) {
     return (
         <div>
 
-            <Row gutter={[{xs: 16, sm: 16, md: 24, lg: 32}, 16]}>
+            <Row type="flex" gutter={[{xs: 16, sm: 16, md: 24, lg: 32}, 16]}>
 
-                <Col span={{xs: 12, sm: 12, md: 8, lg: 8}}>
+                <Col xs={12} sm={12} md={6} lg={6} xl={6}>
                     <Card headStyle={{background: '#f0f2f5'}} title="Confirmed">
-                        <span>{stats.confirmed.value}</span>
+                        {stats.confirmed.value}
                     </Card>
                 </Col>
 
-                <Col span={{xs: 12, sm: 12, md: 8, lg: 8}}>
+                <Col xs={12} sm={12} md={6} lg={6} xl={6}>
                     <Card headStyle={{background: '#f0f2f5'}} title="Deaths">
-                        <span>{stats.deaths.value}</span>
+                        {stats.deaths.value}
                     </Card>
                 </Col>
 
 
-                <Col span={{xs: 12, sm: 12, md: 8, lg: 8}}>
+                <Col xs={12} sm={12} md={6} lg={6} xl={6}>
                     <Card headStyle={{background: '#f0f2f5'}} title="Active">
-                        <span>
+
                             {/*<GetActiveStats url={`${url}/confirmed`}/>*/}
                             {active}
-                        </span>
+
                     </Card>
                 </Col>
 
-                <Col span={{xs: 12, sm: 12, md: 8, lg: 8}}>
+                <Col xs={12} sm={12} md={6} lg={6} xl={6}>
                     <Card headStyle={{background: '#f0f2f5'}} title="Recovered">
 
-                        <span>{stats.recovered.value}</span>
+                        {stats.recovered.value}
                     </Card>
                 </Col>
             </Row>

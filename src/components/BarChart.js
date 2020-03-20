@@ -56,7 +56,7 @@ function BarChart({confirmed, death, recovered}) {
 
             legend: {
                 visible: true,
-                position: 'right',
+                position: 'bottom',
                 flipPage: true
             },
             tooltip: {

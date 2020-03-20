@@ -16,13 +16,16 @@ function Stats({url}) {
     if (loading || !stats) return <p>Loading...</p>;
     if (error ) return <p>Error</p>;
 
+    const active = stats.confirmed.value - stats.deaths.value - stats.recovered.value;
+
+
     return (
 
 
         <div>
 
-                <Row gutter={[{xs: 8, sm: 16, md: 24, lg: 32}, 16]}>
-                    <Col span={{xs: 24, sm: 12, md: 8, lg: 12}}>
+                <Row type='flex' gutter={[16, 16]}>
+                    <Col xs={24} sm={24} md={12} lg={12} xl={12}>
                         <Card>
                             <BarChart
                                 confirmed={stats.confirmed.value}
@@ -31,11 +34,9 @@ function Stats({url}) {
                             />
                         </Card>
 
-
-
                     </Col>
 
-                        <Col span={{xs: 24, sm: 12, md: 8, lg: 12}}>
+                        <Col xs={24} sm={24} md={12} lg={12} xl={12}>
                             <Card>
                             <RecoveryRate
                                 confirmed={stats.confirmed.value}
@@ -48,22 +49,29 @@ function Stats({url}) {
 
                 </Row>
 
-                <Row gutter={{xs: 8, sm: 16, md: 24, lg: 32}}>
+                <Row type='flex' gutter={[{xs: 8, sm: 16, md: 24, lg: 32}, {xs: 8, sm: 16, md: 24, lg: 32}] }>
 
-                    <Col span={{xs: 12, sm: 12, md: 8, lg: 8}}>
+                    <Col xs={12} sm={12} md={6} lg={6} xl={6}>
                         <Card headStyle={{background: '#f0f2f5'}} title="Confirmed:">
                             <span>{stats.confirmed.value}</span>
                         </Card>
                     </Col>
 
-                    <Col span={{xs: 12, sm: 12, md: 8, lg: 8}}>
+                    <Col xs={12} sm={12} md={6} lg={6} xl={6}>
                         <Card headStyle={{background: '#f0f2f5'}} title="Deaths:">
                             <span>{stats.deaths.value}</span>
                         </Card>
                     </Col>
 
 
-                    <Col span={{xs: 24, sm: 12, md: 8, lg: 8}}>
+                    <Col xs={12} sm={12} md={6} lg={6} xl={6}>
+                        <Card headStyle={{background: '#f0f2f5'}} title="Active:">
+                            <span>{active}</span>
+                        </Card>
+                    </Col>
+
+
+                    <Col xs={12} sm={12} md={6} lg={6} xl={6}>
                         <Card headStyle={{background: '#f0f2f5'}} title="Recovered:">
                             <span>{stats.recovered.value}</span>
                         </Card>
