@@ -39,10 +39,10 @@ function Stats({url}) {
                     <Card >
                         <Row>
                             <Col flex={4}>
-                                <Text strong="true">Confirmed</Text>
+                                <Text strong="true" style={{fontSize: 16}}>Confirmed</Text>
                             </Col>
                             <Col flex={1}>
-                                <Text strong code>{stats.confirmed.value}</Text>
+                                <Text strong style={{fontSize: 16}}>{stats.confirmed.value}</Text>
                             </Col>
 
                         </Row>
@@ -55,10 +55,34 @@ function Stats({url}) {
                     <Card>
                         <Row>
                             <Col flex={4}>
-                                <Text strong>Deaths</Text>
+                                <Text strong style={{fontSize: 16}}>Active</Text>
                             </Col>
                             <Col flex={1}>
-                                <Text strong code>{stats.deaths.value}</Text>
+                                <Text strong style={{fontSize: 16}}>{active}</Text>
+                            </Col>
+                        </Row>
+
+
+                    </Card>
+                </Col>
+
+                <Col xs={24} sm={24} md={6} lg={6} xl={6}>
+                    <Card>
+                        <Row>
+                            <Col flex={4}>
+                                <Text strong style={{fontSize: 16}}>Deaths</Text>
+                            </Col>
+                            <Col flex={1}>
+                                <Text strong style={{fontSize: 16, color: '#d84b14'}}>{stats.deaths.value}</Text>
+                            </Col>
+                        </Row>
+
+                        <Row>
+                            <Col flex={4}>
+                                <Text strong style={{fontSize: 13, color: '#a1bbcc'}}>Death Rate</Text>
+                            </Col>
+                            <Col flex={1}>
+                                <Text style={{fontSize: 13, color: '#a1bbcc'}}>{`${((stats.deaths.value/stats.confirmed.value)*100).toFixed(2)}%`}</Text>
                             </Col>
                         </Row>
 
@@ -69,30 +93,30 @@ function Stats({url}) {
 
 
 
-                <Col xs={24} sm={24} md={6} lg={6} xl={6}>
-                    <Card>
-                        <Row>
-                            <Col flex={4}>
-                                <Text strong>Active</Text>
-                            </Col>
-                            <Col flex={1}>
-                                <Text strong code>{active}</Text>
-                            </Col>
-                        </Row>
-                    </Card>
-                </Col>
+
 
 
                 <Col xs={24} sm={24} md={6} lg={6} xl={6}>
                     <Card>
                         <Row>
                             <Col flex={4}>
-                                <Text strong>Recovered</Text>
+                                <Text strong style={{fontSize: 16}}>Recovered</Text>
                             </Col>
                             <Col flex={1}>
-                                <Text strong code>{stats.recovered.value}</Text>
+                                <Text strong style={{fontSize: 16, color: '#0d8625'}}>{stats.recovered.value}</Text>
                             </Col>
                         </Row>
+
+
+                        <Row>
+                            <Col flex={4}>
+                                <Text strong style={{fontSize: 13, color: '#a1bbcc'}}>Recovery Rate</Text>
+                            </Col>
+                            <Col flex={1}>
+                                <Text style={{fontSize: 13, color: '#a1bbcc'}}>{`${((stats.recovered.value/stats.confirmed.value)*100).toFixed(2)}%`}</Text>
+                            </Col>
+                        </Row>
+
                     </Card>
                 </Col>
 
@@ -102,7 +126,7 @@ function Stats({url}) {
 
             <Row type='flex' gutter={[16, 16]}>
                 <Col xs={24} sm={24} md={12} lg={12} xl={12}>
-                    <Card>
+                    <Card >
                         <BarChart
                             confirmed={stats.confirmed.value}
                             death={stats.deaths.value}

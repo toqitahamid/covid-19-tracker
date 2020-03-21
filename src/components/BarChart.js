@@ -37,11 +37,20 @@ function BarChart({confirmed, death, recovered, lastUpdate}) {
             forceFit: true,
             radius: 0.8,
             data,
+            meta: {
+                value: {
+                    alias: '%',
+                    formatter:(v)=>{return `${v}个`}
+                }
+            },
+
+
             angleField: 'value',
             colorField: 'type',
+            color:['#f6c550','#e97f69','#77dcb4'],
             responsive: true,
             title: {
-                visible: true,
+                visible: false,
                 position: 'left',
                 text: 'Global Statistics',
                 style: {
@@ -72,7 +81,7 @@ function BarChart({confirmed, death, recovered, lastUpdate}) {
 
             label: {
                 visible: true,
-                type: 'outer-center',
+                type: 'outer',
             },
             statistic: {
                 visible: true,
