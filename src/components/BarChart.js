@@ -43,7 +43,7 @@ function BarChart({confirmed, death, recovered, lastUpdate}) {
             title: {
                 visible: true,
                 position: 'left',
-                text: 'Global State',
+                text: 'Global Statistics',
                 style: {
                     fontSize: 18,
                     fill: 'black',
@@ -56,7 +56,7 @@ function BarChart({confirmed, death, recovered, lastUpdate}) {
                 text: `Last Updated: ${formattedDate} `,
                 style: {
                     fontSize: 12,
-                    fill: 'black',
+                    fill: 'grey',
                 }
             },
 

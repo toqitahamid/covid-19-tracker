@@ -6,6 +6,8 @@ import RecoveryRate from "./RecoveryRate";
 import Empty from "antd/es/empty";
 
 const { Text } = Typography;
+const { Title } = Typography;
+
 const style = {background: '#fff', padding: '8px'};
 
 
@@ -22,6 +24,14 @@ function Stats({url}) {
 
     return (
         <div>
+            <Row type='flex' gutter={[{xs: 8, sm: 16, md: 24, lg: 32}, {xs: 8, sm: 16, md: 24, lg: 32}]}>
+                <Col >
+                    <Card type="inner" bodyStyle={{background: '#f0f2f5'}}>
+                        <Title level={4}>Global Statistics</Title>
+                    </Card>
+                </Col>
+            </Row>
+
 
             <Row type='flex' gutter={[{xs: 8, sm: 16, md: 24, lg: 32}, {xs: 8, sm: 16, md: 24, lg: 32}]}>
 
@@ -63,7 +73,7 @@ function Stats({url}) {
                     <Card>
                         <Row>
                             <Col flex={4}>
-                                <Text strong>Deaths</Text>
+                                <Text strong>Active</Text>
                             </Col>
                             <Col flex={1}>
                                 <Text strong code>{active}</Text>
