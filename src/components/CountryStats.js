@@ -6,7 +6,8 @@ import {Card, Col, Row, Typography} from 'antd';
 import formatDate from "../utils/formatDate";
 import Empty from "antd/es/empty";
 
-const { Text } = Typography;
+
+const { Text, Title } = Typography;
 
 //const style = {background: '#fff', padding: '8px 0'};
 
@@ -32,37 +33,98 @@ function CountryStats({url}) {
     return (
         <div>
 
-            <Row type="flex" gutter={[{xs: 16, sm: 16, md: 24, lg: 32}, 16]}>
 
-                <Col xs={12} sm={12} md={6} lg={6} xl={6}>
-                    <Card headStyle={{background: '#f0f2f5'}} title="Confirmed">
-                        {stats.confirmed.value}
-                    </Card>
-                </Col>
+            <Row type='flex' gutter={[{xs: 8, sm: 16, md: 24, lg: 32}, {xs: 8, sm: 16, md: 24, lg: 32}]}>
 
-                <Col xs={12} sm={12} md={6} lg={6} xl={6}>
-                    <Card headStyle={{background: '#f0f2f5'}} title="Deaths">
-                        {stats.deaths.value}
-                    </Card>
-                </Col>
+                <Col xs={24} sm={24} md={6} lg={6} xl={6}>
+                    <Card >
+                        <Row>
+                            <Col flex={4}>
+                                <Text strong="true" style={{fontSize: 16}}>Confirmed</Text>
+                            </Col>
+                            <Col flex={1}>
+                                <Text strong style={{fontSize: 16}}>{stats.confirmed.value}</Text>
+                            </Col>
 
+                        </Row>
 
-                <Col xs={12} sm={12} md={6} lg={6} xl={6}>
-                    <Card headStyle={{background: '#f0f2f5'}} title="Active">
-
-                            {/*<GetActiveStats url={`${url}/confirmed`}/>*/}
-                            {active}
 
                     </Card>
                 </Col>
 
-                <Col xs={12} sm={12} md={6} lg={6} xl={6}>
-                    <Card headStyle={{background: '#f0f2f5'}} title="Recovered">
+                <Col xs={24} sm={24} md={6} lg={6} xl={6}>
+                    <Card>
+                        <Row>
+                            <Col flex={4}>
+                                <Text strong style={{fontSize: 16}}>Active</Text>
+                            </Col>
+                            <Col flex={1}>
+                                <Text strong style={{fontSize: 16}}>{active}</Text>
+                            </Col>
+                        </Row>
 
-                        {stats.recovered.value}
+
                     </Card>
                 </Col>
+
+                <Col xs={24} sm={24} md={6} lg={6} xl={6}>
+                    <Card>
+                        <Row>
+                            <Col flex={4}>
+                                <Text strong style={{fontSize: 16}}>Deaths</Text>
+                            </Col>
+                            <Col flex={1}>
+                                <Text strong style={{fontSize: 16, color: '#d84b14'}}>{stats.deaths.value}</Text>
+                            </Col>
+                        </Row>
+
+                        <Row>
+                            <Col flex={4}>
+                                <Text strong style={{fontSize: 13, color: '#a1bbcc'}}>Death Rate</Text>
+                            </Col>
+                            <Col flex={1}>
+                                <Text style={{fontSize: 13, color: '#a1bbcc'}}>{`${((stats.deaths.value/stats.confirmed.value)*100).toFixed(2)}%`}</Text>
+                            </Col>
+                        </Row>
+
+
+
+                    </Card>
+                </Col>
+
+
+
+
+
+
+                <Col xs={24} sm={24} md={6} lg={6} xl={6}>
+                    <Card>
+                        <Row>
+                            <Col flex={4}>
+                                <Text strong style={{fontSize: 16}}>Recovered</Text>
+                            </Col>
+                            <Col flex={1}>
+                                <Text strong style={{fontSize: 16, color: '#0d8625'}}>{stats.recovered.value}</Text>
+                            </Col>
+                        </Row>
+
+
+                        <Row>
+                            <Col flex={4}>
+                                <Text strong style={{fontSize: 13, color: '#a1bbcc'}}>Recovery Rate</Text>
+                            </Col>
+                            <Col flex={1}>
+                                <Text style={{fontSize: 13, color: '#a1bbcc'}}>{`${((stats.recovered.value/stats.confirmed.value)*100).toFixed(2)}%`}</Text>
+                            </Col>
+                        </Row>
+
+                    </Card>
+                </Col>
+
+
+
             </Row>
+
 
             <Row type="flex" style={{alignItems: 'center'}}>
                 <Col>
