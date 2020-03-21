@@ -1,9 +1,15 @@
 import React, {useEffect, useRef} from 'react';
 import {Donut} from '@antv/g2plot';
+import formatDate from "../utils/formatDate";
 
-function BarChart({confirmed, death, recovered}) {
+function BarChart({confirmed, death, recovered, lastUpdate}) {
 
     const active = confirmed - death - recovered;
+    let current_datetime = new Date(lastUpdate);
+
+    const formattedDate = formatDate(current_datetime);
+
+
 
     const data = [
         {
@@ -47,7 +53,7 @@ function BarChart({confirmed, death, recovered}) {
             description: {
                 visible: true,
                 position: 'left',
-                text: 'Last Updated',
+                text: `Last Updated: ${formattedDate} `,
                 style: {
                     fontSize: 12,
                     fill: 'black',

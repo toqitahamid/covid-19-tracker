@@ -2,9 +2,14 @@ import useStats from "../utils/useStats";
 //import styled from "styled-components";
 import React from "react";
 //import GetActiveStats from "./GetActiveStats";
-import {Card, Col, Row} from 'antd';
+import {Card, Col, Row, Typography} from 'antd';
+import formatDate from "../utils/formatDate";
+
+const { Text } = Typography;
 
 //const style = {background: '#fff', padding: '8px 0'};
+
+
 
 function CountryStats({url}) {
 
@@ -16,6 +21,9 @@ function CountryStats({url}) {
     if (loading) return <p>Loading...</p>;
     if (error || !stats) return <p>Error</p>;
     const active = stats.confirmed.value - stats.deaths.value - stats.recovered.value;
+    const lastUpdate = stats.lastUpdate;
+    const formatted_date = formatDate(lastUpdate);
+
 
     return (
         <div>
@@ -49,6 +57,13 @@ function CountryStats({url}) {
 
                         {stats.recovered.value}
                     </Card>
+                </Col>
+            </Row>
+
+            <Row type="flex" style={{alignItems: 'center'}}>
+                <Col>
+
+                        <Text  type="secondary">{`Last Updated: ${formatted_date}`}</Text>
                 </Col>
             </Row>
 

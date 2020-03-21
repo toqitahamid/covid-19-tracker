@@ -18,7 +18,6 @@ function Stats({url}) {
 
     const active = stats.confirmed.value - stats.deaths.value - stats.recovered.value;
 
-
     return (
 
 
@@ -31,6 +30,8 @@ function Stats({url}) {
                                 confirmed={stats.confirmed.value}
                                 death={stats.deaths.value}
                                 recovered={stats.recovered.value}
+                                lastUpdate = {stats.lastUpdate}
+
                             />
                         </Card>
 
