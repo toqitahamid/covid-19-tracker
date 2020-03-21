@@ -24,6 +24,7 @@ function Stats({url}) {
 
     return (
         <div>
+
             <Row type='flex' gutter={[{xs: 8, sm: 16, md: 24, lg: 32}, {xs: 8, sm: 16, md: 24, lg: 32}]}>
                 <Col >
                     <Card type="inner" bodyStyle={{background: '#f0f2f5'}}>
@@ -152,37 +153,7 @@ function Stats({url}) {
             </Row>
 
 
-            <Card>
-                <Row type='flex' gutter={[{xs: 8, sm: 16, md: 24, lg: 32}, {xs: 8, sm: 16, md: 24, lg: 32}]}>
 
-                    <Col xs={12} sm={12} md={6} lg={6} xl={6}>
-                        <Card headStyle={{background: '#f0f2f5'}} title="Confirmed:">
-                            <span>{stats.confirmed.value}</span>
-                        </Card>
-                    </Col>
-
-                    <Col xs={12} sm={12} md={6} lg={6} xl={6}>
-                        <Card headStyle={{background: '#f0f2f5'}} title="Deaths:">
-                            <span>{stats.deaths.value}</span>
-                        </Card>
-                    </Col>
-
-
-                    <Col xs={12} sm={12} md={6} lg={6} xl={6}>
-                        <Card headStyle={{background: '#f0f2f5'}} title="Active:">
-                            <span>{active}</span>
-                        </Card>
-                    </Col>
-
-
-                    <Col xs={12} sm={12} md={6} lg={6} xl={6}>
-                        <Card headStyle={{background: '#f0f2f5'}} title="Recovered:">
-                            <span>{stats.recovered.value}</span>
-                        </Card>
-                    </Col>
-
-                </Row>
-            </Card>
 
         </div>
     );
