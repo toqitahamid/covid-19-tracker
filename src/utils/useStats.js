@@ -14,7 +14,7 @@ function useStats(url) {
         async function fetchData() {
 
             setError(false);
-
+            setLoading(true);
 
             const data = await fetch(url).then(res => {
                 if (res.status === 200) {
@@ -31,7 +31,7 @@ function useStats(url) {
 
         }
 
-        setLoading(false);
+        //setLoading(false);
         fetchData();
     }, [url]);
     return {

@@ -4,6 +4,7 @@ import React from "react";
 //import GetActiveStats from "./GetActiveStats";
 import {Card, Col, Row, Typography} from 'antd';
 import formatDate from "../utils/formatDate";
+import Empty from "antd/es/empty";
 
 const { Text } = Typography;
 
@@ -18,8 +19,11 @@ function CountryStats({url}) {
 
     //console.log(error);
     //if (!stats) return <p>Loading...</p>
-    if (loading) return <p>Loading...</p>;
-    if (error || !stats) return <p>Error</p>;
+    if (loading ) return <Card active= 'true' loading='true'/>;
+
+    if (error || !stats) return <Empty description='No Cases Found'/>;
+
+
     const active = stats.confirmed.value - stats.deaths.value - stats.recovered.value;
     const lastUpdate = stats.lastUpdate;
     const formatted_date = formatDate(lastUpdate);

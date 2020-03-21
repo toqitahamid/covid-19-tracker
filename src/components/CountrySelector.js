@@ -6,6 +6,7 @@ import CountryStats from "./CountryStats";
 import {Card, Col, Row, Select} from 'antd';
 //import css module
 import 'react-flags-select/css/react-flags-select.css';
+import Empty from "antd/es/empty";
 
 
 const style = {background: '#fff', padding: '8px 0'};
@@ -25,10 +26,9 @@ function CountrySelector() {
     //const [counter, setCounter] = useState(1);
 
 
-    if (loading) return <p>Loading...</p>;
-    if (loading) return <p>Loading...</p>;
-    if (error || !countries) return <p>Error</p>;
-
+    if (loading ) return <Card active= 'true' loading='true'/>;
+    if (!countries) return <Card active= 'true' loading='true'/>;
+    if (error) return <Empty/>;
 
     //if (!countries) return <p>Loading...</p>;
 
