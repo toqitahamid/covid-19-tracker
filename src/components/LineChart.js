@@ -27,7 +27,7 @@ function LineChart({data}) {
         const linePlot = new Line(container.current, {
             title: {
                 visible: true,
-                text: 'Global State of CVOID-19',
+                text: 'Timeline of Confirmed & Active Cases',
             },
             description: {
                 visible: false,
@@ -63,6 +63,7 @@ function LineChart({data}) {
             legend: {
                 visible: true,
                 position:'bottom-center',
+                flipPage: true,
             },
 
             label: {
@@ -70,10 +71,10 @@ function LineChart({data}) {
                 type: 'line',
             },
 
-            animation: {
-                type: 'clipingWithData',
-            },
-            smooth: true,
+            // animation: {
+            //     type: 'clipingWithData',
+            // },
+            // smooth: true,
 
             color: ['#389e0d', '#D62A0D'],
 

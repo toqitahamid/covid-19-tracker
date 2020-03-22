@@ -21,8 +21,9 @@ function GlobalLineChart({url}) {
     if (error ) return <Empty description='No Data'/>;
 
     //const reportDateString = Object.entries(stats).map(([id]) => ({Date: stats[id].reportDateString, Confirmed: stats[id].totalConfirmed, Recovered: stats[id].totalRecovered}));
-    const reportRecovered = Object.entries(stats).map(([id]) => ({Date: stats[id].reportDateString, type: 'Recovered', value: stats[id].totalRecovered}));
+
     const reportConfirmed = Object.entries(stats).map(([id]) => ({Date: stats[id].reportDateString, type: 'Confirmed', value: stats[id].totalConfirmed}));
+    const reportRecovered = Object.entries(stats).map(([id]) => ({Date: stats[id].reportDateString, type: 'Recovered', value: stats[id].totalRecovered}));
 
     const reportData = [...reportRecovered, ...reportConfirmed];
 

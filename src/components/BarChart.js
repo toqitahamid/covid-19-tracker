@@ -52,7 +52,7 @@ function BarChart({confirmed, death, recovered, lastUpdate}) {
             title: {
                 visible: true,
                 position: 'left',
-                text: 'Global State',
+                text: 'Global State Comparison',
                 style: {
                     fontSize: 18,
                     fill: 'black',
