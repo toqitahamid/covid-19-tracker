@@ -1,5 +1,6 @@
 import React, {useEffect, useRef} from 'react';
 import {Line} from '@antv/g2plot';
+import abbreviateNumber from "../utils/abbreviateNumber";
 
 function LineChart({data}) {
     //const data = oata;
@@ -36,6 +37,13 @@ function LineChart({data}) {
             padding: 'auto',
             forceFit: true,
             data,
+            meta: {
+
+                value: {
+
+                    formatter:(v)=>{return abbreviateNumber(v)}
+                }
+            },
             xField: 'Date',
             yField: 'value',
             xAxis: {
@@ -54,8 +62,9 @@ function LineChart({data}) {
 
             legend: {
                 visible: true,
-                position:'top',
+                position:'bottom-center',
             },
+
             label: {
                 visible: false,
                 type: 'line',
