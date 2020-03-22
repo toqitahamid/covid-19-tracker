@@ -2,8 +2,8 @@ import React from "react";
 import useStats from "../utils/useStats";
 import {Card, Col, Row, Typography} from 'antd';
 import BarChart from "./BarChart";
-import RecoveryRate from "./RecoveryRate";
 import Empty from "antd/es/empty";
+import GlobalLineChart from "./GlobalLineChart";
 
 const { Text } = Typography;
 const { Title } = Typography;
@@ -141,11 +141,7 @@ function Stats({url}) {
 
                 <Col xs={24} sm={24} md={12} lg={12} xl={12}>
                     <Card>
-                        <RecoveryRate
-                            confirmed={stats.confirmed.value}
-                            death={stats.deaths.value}
-                            recovered={stats.recovered.value}
-                        />
+                        <GlobalLineChart url="https://covid19.mathdro.id/api/daily"/>
                     </Card>
                 </Col>
 

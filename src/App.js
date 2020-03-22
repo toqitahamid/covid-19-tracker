@@ -34,6 +34,8 @@ class App extends Component {
 
                         <Content style={{padding: '0 12px', minHeight: 280}}>
 
+
+
                             <div className="site-layout-content">
                                 <Row gutter={[{xs: 8, sm: 16, md: 24, lg: 32}, 16]}>
                                     <Col >

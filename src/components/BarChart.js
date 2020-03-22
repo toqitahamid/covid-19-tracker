@@ -50,9 +50,9 @@ function BarChart({confirmed, death, recovered, lastUpdate}) {
             color:['#f6c550','#e97f69','#77dcb4'],
             responsive: true,
             title: {
-                visible: false,
+                visible: true,
                 position: 'left',
-                text: 'Global Statistics',
+                text: 'Global State',
                 style: {
                     fontSize: 18,
                     fill: 'black',
