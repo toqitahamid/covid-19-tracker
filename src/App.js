@@ -1,14 +1,14 @@
 import React, {Component} from 'react';
 import './App.css';
 import Stats from "./components/Stats";
-import CountrySelector from "./components/CountrySelector";
+import CountrySelector from "./components/country/CountrySelector";
 import {Col, Layout, Menu, Row} from 'antd';
 //import { UserOutlined, LaptopOutlined, NotificationOutlined } from '@ant-design/icons';
 
 //const style = { background: '#fff', padding: '8px 0' };
 
 
-const {Header, Footer, Sider, Content} = Layout;
+const {Header, Footer, Content} = Layout;
 
 //const {SubMenu} = Menu;
 

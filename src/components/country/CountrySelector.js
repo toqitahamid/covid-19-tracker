@@ -1,15 +1,14 @@
 import React, {useState} from "react";
 //import styled from "styled-components";
-import useStats from "../utils/useStats";
+import useStats from "../../utils/useStats";
 import CountryStats from "./CountryStats";
 //import ReactFlagsSelect from 'react-flags-select';
-import {Card, Col, Row, Select} from 'antd';
+import {Card, Col, Empty, Row, Select} from 'antd';
 //import css module
 import 'react-flags-select/css/react-flags-select.css';
-import Empty from "antd/es/empty";
-
-
-const style = {background: '#fff', padding: '8px 0'};
+//import CountrySummaryDonutChart from "./graphs/CountrySummaryDonutChart";
+//import GlobalLineChart from "../global/GlobalLineChart";
+import CountryChartContainer from "./CountryChartContainer";
 
 
 const {Option} = Select;
@@ -48,9 +47,9 @@ function CountrySelector() {
                                         showSearch={true}
                                         defaultValue={selectedCountry}
                                         onChange={
-                                            value => {
-                                                setSelectedCountry(value);
-                                            }}
+                                            e =>
+                                                setSelectedCountry(e)
+                                            }
                                     >
                                         {Object.entries(countries.countries).map(([country, code]) => (
                                             <Option key={countries.iso3[code] + Math.random()}
@@ -86,12 +85,26 @@ function CountrySelector() {
                             <Row >
                                 <Col>
                                     <CountryStats
-                                        url={`https://covid19.mathdro.id/api/countries/${selectedCountry}`}></CountryStats>
+                                        url={`https://covid19.mathdro.id/api/countries/${selectedCountry}`}
+                                        selectedCountry={selectedCountry}>
+                                    </CountryStats>
+
                                     {/*<span>{console.log(getKeyByValue(countries.countries, selectedCountry))}</span>*/}
 
                                 </Col>
 
                             </Row>
+
+
+                            <Row>
+                                <Col>
+                                    <CountryChartContainer url={`https://covid19.mathdro.id/api/countries/${selectedCountry}`}/>
+                                </Col>
+                            </Row>
+
+
+
+
 
                         </div>
                     </Card>

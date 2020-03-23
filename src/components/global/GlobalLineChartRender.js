@@ -1,8 +1,8 @@
 import React, {useEffect, useRef} from 'react';
 import {Line} from '@antv/g2plot';
-import abbreviateNumber from "../utils/abbreviateNumber";
+import abbreviateNumber from "../../utils/abbreviateNumber";
 
-function LineChart({data}) {
+function GlobalLineChartRender({data}) {
     //const data = oata;
     // const data = [
     //     {year: '1991', value: 3},
@@ -78,7 +78,10 @@ function LineChart({data}) {
 
             color: ['#389e0d', '#D62A0D'],
 
+
         });
+
+
 
         linePlot.render();
 
@@ -95,4 +98,4 @@ function LineChart({data}) {
 }
 
 
-export default LineChart;
+export default GlobalLineChartRender;

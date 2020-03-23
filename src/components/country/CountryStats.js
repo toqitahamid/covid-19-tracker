@@ -1,29 +1,32 @@
-import useStats from "../utils/useStats";
+import useStats from "../../utils/useStats";
 //import styled from "styled-components";
 import React from "react";
-//import GetActiveStats from "./GetActiveStats";
-import {Card, Col, Row, Typography} from 'antd';
-import formatDate from "../utils/formatDate";
-import Empty from "antd/es/empty";
+import {Card, Col, Empty, Row, Typography} from 'antd';
+import formatDate from "../../utils/formatDate";
+//import GlobalLineChart from "../global/GlobalLineChart";
+//import CountrySummaryDonutChart from "./graphs/CountrySummaryDonutChart";
+//import CountryChartContainer from "./CountryChartContainer";
 
 
-const { Text, Title } = Typography;
+const { Text} = Typography;
 
 //const style = {background: '#fff', padding: '8px 0'};
 
 
 
-function CountryStats({url}) {
+function CountryStats({url, selectedCountry}) {
 
     const {stats, loading, error} = useStats(url);
+
+
 
 
     //console.log(error);
     //if (!stats) return <p>Loading...</p>
     if (loading ) return <Card active= 'true' loading='true'/>;
-
-    if (error || !stats) return <Empty description='No Cases Found'/>;
-
+    if (!stats ) return <Card active= 'true' loading='true'/>;
+    if (error ) return <Empty description='No Cases Found'/>;
+    //console.log(selectedCountry);
 
     const active = stats.confirmed.value - stats.deaths.value - stats.recovered.value;
     const lastUpdate = stats.lastUpdate;
@@ -45,10 +48,7 @@ function CountryStats({url}) {
                             <Col flex={1}>
                                 <Text strong style={{fontSize: 16}}>{stats.confirmed.value}</Text>
                             </Col>
-
                         </Row>
-
-
                     </Card>
                 </Col>
 
@@ -126,12 +126,19 @@ function CountryStats({url}) {
             </Row>
 
 
+
+
+
+
             <Row type="flex" style={{alignItems: 'center'}}>
                 <Col>
 
                         <Text  type="secondary">{`Last Updated: ${formatted_date}`}</Text>
                 </Col>
             </Row>
+
+
+
 
         </div>
     );

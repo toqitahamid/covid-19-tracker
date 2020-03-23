@@ -1,17 +1,13 @@
-import useStats from "../utils/useStats";
-//import styled from "styled-components";
+import useStats from "../../utils/useStats";
 import React from "react";
-//import GetActiveStats from "./GetActiveStats";
-import {Card, Typography} from 'antd';
-import Empty from "antd/es/empty";
-import LineChart from "./LineChart";
+import {Card, Empty} from 'antd';
+import GlobalLineChartRender from "./GlobalLineChartRender";
 
-
-const { Text, Title } = Typography;
 
 //const style = {background: '#fff', padding: '8px 0'};
 
-function GlobalLineChart({url}) {
+function GlobalLineChart({url, countryStats}) {
+
 
     const {stats, loading, error} = useStats(url);
 
@@ -32,27 +28,14 @@ function GlobalLineChart({url}) {
 
     //var person = {date: reportDateString}
 
-    //console.log(reportData);
-
-    // const data = [
-    //     {year: '1991', value: 3},
-    //     {year: '1992', value: 4},
-    //     {year: '1993', value: 3.5},
-    //     {year: '1994', value: 5},
-    //     {year: '1995', value: 4.9},
-    //     {year: '1996', value: 6},
-    //     {year: '1997', value: 7},
-    //     {year: '1998', value: 9},
-    //     {year: '1999', value: 13},
-    // ];
-    //
-    // console.log(data);
 
     return (
         //<div/>
-        <LineChart data={reportData} />
+        <GlobalLineChartRender data={reportData} />
 
     );
+
+
 }
 
 export default GlobalLineChart;

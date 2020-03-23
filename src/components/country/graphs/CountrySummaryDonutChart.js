@@ -1,10 +1,11 @@
 import React, {useEffect, useRef} from 'react';
 import {Donut} from '@antv/g2plot';
-import formatDate from "../utils/formatDate";
+import formatDate from "../../../utils/formatDate";
 
-function BarChart({confirmed, death, recovered, lastUpdate}) {
 
-    const active = confirmed - death - recovered;
+function CountrySummaryDonutChart({confirmed, death, recovered, lastUpdate}) {
+
+    const activePatient = confirmed - death - recovered;
     let current_datetime = new Date(lastUpdate);
 
     const formattedDate = formatDate(current_datetime);
@@ -14,7 +15,7 @@ function BarChart({confirmed, death, recovered, lastUpdate}) {
     const data = [
         {
             type: 'Active',
-            value: active,
+            value: activePatient,
         },
         {
             type: 'Death',
@@ -52,7 +53,7 @@ function BarChart({confirmed, death, recovered, lastUpdate}) {
             title: {
                 visible: true,
                 position: 'left',
-                text: 'Global State Comparison',
+                text: 'Regional State Comparison',
                 style: {
                     fontSize: 18,
                     fill: 'black',
@@ -93,6 +94,7 @@ function BarChart({confirmed, death, recovered, lastUpdate}) {
         });
 
         ringPlot.render();
+
     }, []);
 
     return (
@@ -102,4 +104,4 @@ function BarChart({confirmed, death, recovered, lastUpdate}) {
     );
 }
 
-export default BarChart;
+export default CountrySummaryDonutChart;
