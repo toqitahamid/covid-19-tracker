@@ -133,7 +133,7 @@ function CountryStats({url, selectedCountry}) {
             <Row type="flex" style={{alignItems: 'center'}}>
                 <Col>
 
-                        <Text  type="secondary">{`Last Updated: ${formatted_date}`}</Text>
+                    <Text  type="secondary">{`Last Updated: ${formatted_date}`}</Text>
                 </Col>
             </Row>
 

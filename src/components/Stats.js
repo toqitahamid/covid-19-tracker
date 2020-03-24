@@ -22,13 +22,13 @@ function Stats({url}) {
     return (
         <div>
 
-            <Row type='flex' gutter={responsiveGutter}>
-                <Col >
-                    <Card type="inner" bodyStyle={{background: '#f0f2f5'}}>
-                        <Title level={4}>Global Statistics</Title>
-                    </Card>
-                </Col>
-            </Row>
+            {/*<Row type='flex' gutter={responsiveGutter}>*/}
+            {/*    <Col >*/}
+            {/*        <Card type="inner" bodyStyle={{background: '#f0f2f5'}}>*/}
+            {/*            <Title level={4}>Global Statistics</Title>*/}
+            {/*        </Card>*/}
+            {/*    </Col>*/}
+            {/*</Row>*/}
 
 
             <Row type='flex' gutter={responsiveGutter}>

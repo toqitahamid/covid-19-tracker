@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@ant-design/icons-svg": "^4.0.0",
     "@antv/f2": "^3.6.1",
     "@antv/g2plot": "^1.0.2",
     "antd": "^4.0.3",

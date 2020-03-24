@@ -3,9 +3,11 @@ import './App.css';
 import Stats from "./components/Stats";
 import CountrySelector from "./components/country/CountrySelector";
 import {Col, Layout, Menu, Row} from 'antd';
+import BangladeshComponent from "./components/bangladesh/BangladeshComponent";
 //import { UserOutlined, LaptopOutlined, NotificationOutlined } from '@ant-design/icons';
 
 //const style = { background: '#fff', padding: '8px 0' };
+
 
 
 const {Header, Footer, Content} = Layout;
@@ -18,7 +20,7 @@ class App extends Component {
         return (
 
             <Layout>
-                <Header className="header">
+                <Header className="header" style={{background: '#013897'}}>
                     <div className="logo"/>
                     <Menu
                         theme="dark"
@@ -37,6 +39,9 @@ class App extends Component {
 
 
                             <div className="site-layout-content">
+
+                                <BangladeshComponent/>
+
                                 <Row gutter={[{xs: 8, sm: 16, md: 24, lg: 32}, 16]}>
                                     <Col >
                                         <Stats url="https://covid19.mathdro.id/api"></Stats>

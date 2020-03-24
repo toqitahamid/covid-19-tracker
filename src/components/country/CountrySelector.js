@@ -29,6 +29,12 @@ function CountrySelector() {
     if (!countries) return <Card active= 'true' loading='true'/>;
     if (error) return <Empty/>;
 
+    console.log(countries.countries[0].iso3);
+
+    Object.entries(countries.countries).map(([index, value]) => (
+        console.log(value.name)
+    ));
+
     //if (!countries) return <p>Loading...</p>;
 
     return (
@@ -51,10 +57,10 @@ function CountrySelector() {
                                                 setSelectedCountry(e)
                                             }
                                     >
-                                        {Object.entries(countries.countries).map(([country, code]) => (
-                                            <Option key={countries.iso3[code] + Math.random()}
-                                                    value={countries.iso3[code]}>
-                                                {country}
+                                        {Object.entries(countries.countries).map(([key, value]) => (
+                                            <Option key={value.iso3 + Math.random()}
+                                                    value={value.iso3}>
+                                                {value.name}
                                             </Option>
                                         ))}
                                     </Select>
@@ -101,9 +107,6 @@ function CountrySelector() {
                                     <CountryChartContainer url={`https://covid19.mathdro.id/api/countries/${selectedCountry}`}/>
                                 </Col>
                             </Row>
-
-
-
 
 
                         </div>
