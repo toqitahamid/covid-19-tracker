@@ -14,12 +14,16 @@ function BangladeshComponent() {
 
     const {stats: historicalStats, historicalLoading, historicalError} = useStats('https://corona.lmao.ninja/historical/bangladesh');
 
+
+
     //https://corona.lmao.ninja/historical/Bangladesh
     //https://covid19.mathdro.id/api
-
+    //
     if (loading || todayLoading || historicalLoading) return <Card active='true' loading='true'/>;
     if (!stats || !todayStats || !historicalStats) return <Card active='true' loading='true'/>;
     if (error || todayError || historicalError) return <Empty/>;
+
+
 
     const historicalConfirmed = historicalStats.timeline.cases;
     const historicalConfirmedArray = Object.entries(historicalConfirmed).map(([value, id]) => ({Date: value, type: 'Confirmed', value: historicalConfirmed[value]}));
@@ -35,7 +39,41 @@ function BangladeshComponent() {
 
     const historicalActiveArray = Object.entries(historicalConfirmed).map(([value, id  ]) => ({Date: value, type: 'Active', value: historicalConfirmed[value]-historicalDeaths[value]-historicalRecovered[value]}));
 
-    //console.log(historicalActiveArray);
+    console.log(historicalActiveArray);
+
+
+    const timelineConfirmed = historicalConfirmedArray.filter(function (data, index) {
+
+        let itemTime = new Date(data.Date).getTime();
+        let filterTime = new Date('3/7/20').getTime();
+        return itemTime >= filterTime ;
+    });
+
+    const timelineRecovered = historicalRecoveredArray.filter(function (data, index) {
+
+        let itemTime = new Date(data.Date).getTime();
+        let filterTime = new Date('3/7/20').getTime();
+        return itemTime >= filterTime ;
+    });
+
+
+    const timelineDeaths = historicalDeathsArray.filter(function (data, index) {
+
+        let itemTime = new Date(data.Date).getTime();
+        let filterTime = new Date('3/7/20').getTime();
+        return itemTime >= filterTime ;
+    });
+
+
+    const timelineActive = historicalActiveArray.filter(function (data, index) {
+
+        let itemTime = new Date(data.Date).getTime();
+        let filterTime = new Date('3/7/20').getTime();
+        return itemTime >= filterTime ;
+    });
+
+
+    console.log(timelineActive);
 
     const todayCases = todayStats.todayCases;
     const todayDeaths = todayStats.todayDeaths;
@@ -62,7 +100,7 @@ function BangladeshComponent() {
 
                         <Row>
                             <Col span={24}>
-                                <CardAreaChart data={historicalConfirmedArray} color={'orange'}/>
+                                <CardAreaChart data={timelineConfirmed} color={'orange'}/>
                             </Col>
 
                         </Row>
@@ -99,7 +137,7 @@ function BangladeshComponent() {
 
                         <Row>
                             <Col span={24}>
-                                <CardAreaChart data={historicalActiveArray} color={'grey'}/>
+                                <CardAreaChart data={timelineActive} color={'grey'}/>
                             </Col>
 
                         </Row>
@@ -139,7 +177,7 @@ function BangladeshComponent() {
 
                         <Row>
                             <Col span={24}>
-                                <CardAreaChart data={historicalRecoveredArray} color={'green'}/>
+                                <CardAreaChart data={timelineRecovered} color={'green'}/>
                             </Col>
 
                         </Row>
@@ -179,7 +217,7 @@ function BangladeshComponent() {
 
                         <Row>
                             <Col span={24}>
-                                <CardAreaChart data={historicalDeathsArray} color={'red'}/>
+                                <CardAreaChart data={timelineDeaths} color={'red'}/>
                             </Col>
 
                         </Row>

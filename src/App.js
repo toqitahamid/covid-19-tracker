@@ -4,7 +4,6 @@ import Stats from "./components/Stats";
 import CountrySelector from "./components/country/CountrySelector";
 import {Col, Layout, Menu, Row} from 'antd';
 import BangladeshComponent from "./components/bangladesh/BangladeshComponent";
-import CardCarousel from "./components/bangladesh/CardCarousel";
 //import { UserOutlined, LaptopOutlined, NotificationOutlined } from '@ant-design/icons';
 
 //const style = { background: '#fff', padding: '8px 0' };
@@ -40,8 +39,6 @@ class App extends Component {
 
 
                             <div className="site-layout-content">
-
-                                <CardCarousel/>
 
                                 <BangladeshComponent/>
 
