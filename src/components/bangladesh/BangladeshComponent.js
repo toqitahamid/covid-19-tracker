@@ -35,7 +35,7 @@ function BangladeshComponent() {
 
     const historicalActiveArray = Object.entries(historicalConfirmed).map(([value, id  ]) => ({Date: value, type: 'Active', value: historicalConfirmed[value]-historicalDeaths[value]-historicalRecovered[value]}));
 
-//    console.log(historicalActiveArray);
+    //console.log(historicalActiveArray);
 
     const todayCases = todayStats.todayCases;
     const todayDeaths = todayStats.todayDeaths;
@@ -44,6 +44,8 @@ function BangladeshComponent() {
 
     return (
         <div>
+
+
             <Row type='flex' gutter={responsiveGutter}>
 
                 <Col xs={24} sm={24} md={6} lg={6} xl={6} xxl={6}>
@@ -97,7 +99,7 @@ function BangladeshComponent() {
 
                         <Row>
                             <Col span={24}>
-                                <CardAreaChart data={historicalRecoveredArray} color={'grey'}/>
+                                <CardAreaChart data={historicalActiveArray} color={'grey'}/>
                             </Col>
 
                         </Row>

@@ -29,11 +29,6 @@ function CountrySelector() {
     if (!countries) return <Card active= 'true' loading='true'/>;
     if (error) return <Empty/>;
 
-    console.log(countries.countries[0].iso3);
-
-    Object.entries(countries.countries).map(([index, value]) => (
-        console.log(value.name)
-    ));
 
     //if (!countries) return <p>Loading...</p>;
 
