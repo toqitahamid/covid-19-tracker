@@ -11,16 +11,16 @@ const responsiveGutter = [{xs: 8, sm: 16, md: 24, lg: 32}, {xs: 8, sm: 16, md: 2
 function CardCarousel() {
 
     const {stats, loading, error} = useStats('https://covid19.mathdro.id/api/countries/BD');
-    const {stats: todayStats, todayLoading, todayError} = useStats('https://corona.lmao.ninja/countries/bangladesh?strict=true');
+    // const {stats: todayStats, todayLoading, todayError} = useStats('https://corona.lmao.ninja/countries/bangladesh?strict=true');
 
     const {stats: historicalStats, historicalLoading, historicalError} = useStats('https://corona.lmao.ninja/historical/bangladesh');
 
 //https://corona.lmao.ninja/historical/Bangladesh
 //https://covid19.mathdro.id/api
 
-    if (loading || todayLoading || historicalLoading) return <Card active='true' loading='true'/>;
-    if (!stats || !todayStats || !historicalStats) return <Card active='true' loading='true'/>;
-    if (error || todayError || historicalError) return <Empty/>;
+    if (loading || historicalLoading) return <Card active='true' loading='true'/>;
+    if (!stats || !historicalStats) return <Card active='true' loading='true'/>;
+    if (error || historicalError) return <Empty/>;
 
     const historicalConfirmed = historicalStats.timeline.cases;
     const historicalConfirmedArray = Object.entries(historicalConfirmed).map(([value, id]) => ({
@@ -54,9 +54,9 @@ function CardCarousel() {
 
 //console.log(historicalActiveArray);
 
-    const todayCases = todayStats.todayCases;
-    const todayDeaths = todayStats.todayDeaths;
-    const active = stats.confirmed.value - stats.deaths.value - stats.recovered.value;
+    // const todayCases = todayStats.todayCases;
+    // const todayDeaths = todayStats.todayDeaths;
+    // const active = stats.confirmed.value - stats.deaths.value - stats.recovered.value;
 
 
     return (

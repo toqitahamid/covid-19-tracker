@@ -1,9 +1,11 @@
 import React, {Component} from 'react';
 import './App.css';
-import Stats from "./components/Stats";
-import CountrySelector from "./components/country/CountrySelector";
-import {Col, Layout, Menu, Row} from 'antd';
+//import Stats from "./components/Stats";
+//import CountrySelector from "./components/country/CountrySelector";
+import {Layout, Menu} from 'antd';
 import BangladeshComponent from "./components/bangladesh/BangladeshComponent";
+import TodoList from "./components/bangladesh/TodoList";
+
 //import { UserOutlined, LaptopOutlined, NotificationOutlined } from '@ant-design/icons';
 
 //const style = { background: '#fff', padding: '8px 0' };
@@ -40,21 +42,24 @@ class App extends Component {
 
                             <div className="site-layout-content">
 
+
                                 <BangladeshComponent/>
 
-                                <Row gutter={[{xs: 8, sm: 16, md: 24, lg: 32}, 16]}>
-                                    <Col >
-                                        <Stats url="https://covid19.mathdro.id/api"></Stats>
-                                    </Col>
-                                </Row>
+                                <TodoList/>
+
+                                {/*<Row gutter={[{xs: 8, sm: 16, md: 24, lg: 32}, 16]}>*/}
+                                {/*    <Col >*/}
+                                {/*        <Stats url="https://covid19.mathdro.id/api"></Stats>*/}
+                                {/*    </Col>*/}
+                                {/*</Row>*/}
 
 
 
-                                <Row gutter={[{xs: 8, sm: 16, md: 24, lg: 32}, 16]}>
-                                    <Col>
-                                        <CountrySelector/>
-                                    </Col>
-                                </Row>
+                                {/*<Row gutter={[{xs: 8, sm: 16, md: 24, lg: 32}, 16]}>*/}
+                                {/*    <Col>*/}
+                                {/*        <CountrySelector/>*/}
+                                {/*    </Col>*/}
+                                {/*</Row>*/}
 
 
 

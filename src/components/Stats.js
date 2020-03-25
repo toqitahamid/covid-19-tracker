@@ -90,10 +90,6 @@ function Stats({url}) {
                 </Col>
 
 
-
-
-
-
                 <Col xs={24} sm={24} md={6} lg={6} xl={6}>
                     <Card>
                         <Row>
