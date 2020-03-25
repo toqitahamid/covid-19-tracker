@@ -323,7 +323,7 @@ function BangladeshComponent() {
                 <Col xs={24} sm={24} md={6} lg={6} xl={6} xxl={6}>
                     <Card >
                         <Row>
-                            <Col>
+                            <Col span={12}>
                                     <Statistic
                                         title="Infected"
                                         value={stats.confirmed.value}
@@ -331,7 +331,7 @@ function BangladeshComponent() {
                                     />
                             </Col>
 
-                            <Col>
+                            <Col span={12}>
                                 <Statistic
                                     title="First Reported"
                                     value="8 March"
@@ -397,7 +397,7 @@ function BangladeshComponent() {
                     <Card>
 
                         <Row>
-                            <Col>
+                            <Col span={12}>
                                 <div>
                                     <Statistic
                                         title="Active"
@@ -466,7 +466,7 @@ function BangladeshComponent() {
                     <Card>
 
                         <Row>
-                            <Col>
+                            <Col span={12}>
                                 <div>
                                     <Statistic
                                         title="Recovered"
@@ -477,7 +477,7 @@ function BangladeshComponent() {
                             </Col>
 
                             <Col>
-                                <div>
+                                <div span={12}>
                                     <Statistic
                                         title="Recoverey Rate"
                                         value={`${((stats.recovered.value / stats.confirmed.value) * 100).toFixed(2)} %`}
@@ -545,7 +545,7 @@ function BangladeshComponent() {
                     <Card>
 
                         <Row>
-                            <Col>
+                            <Col span={12}>
                                 <div>
                                     <Statistic
                                         title="Deaths"
@@ -555,7 +555,7 @@ function BangladeshComponent() {
                                 </div>
                             </Col>
 
-                            <Col>
+                            <Col span={12}>
                                 <div>
                                     <Statistic
                                         title="Death Rate"
