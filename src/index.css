@@ -4,8 +4,13 @@
   padding: 24px;
   min-height: 280px;
 }
+*/
+.site-layout-background{
+    background: #f4f6fa;
+}
 
 
+/*
 #components-layout-demo-top .logo{
   width: 120px;
   height: 31px;

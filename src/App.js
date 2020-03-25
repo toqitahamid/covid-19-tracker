@@ -1,14 +1,18 @@
 import React, {Component} from 'react';
 import './App.css';
-import Stats from "./components/Stats";
-import CountrySelector from "./components/CountrySelector";
-import {Col, Layout, Menu, Row} from 'antd';
+//import Stats from "./components/Stats";
+//import CountrySelector from "./components/country/CountrySelector";
+import {Layout, Menu} from 'antd';
+import BangladeshComponent from "./components/bangladesh/BangladeshComponent";
+import TodoList from "./components/bangladesh/TodoList";
+
 //import { UserOutlined, LaptopOutlined, NotificationOutlined } from '@ant-design/icons';
 
 //const style = { background: '#fff', padding: '8px 0' };
 
 
-const {Header, Footer, Sider, Content} = Layout;
+
+const {Header, Footer, Content} = Layout;
 
 //const {SubMenu} = Menu;
 
@@ -18,7 +22,7 @@ class App extends Component {
         return (
 
             <Layout>
-                <Header className="header">
+                <Header className="header" style={{background: '#013897'}}>
                     <div className="logo"/>
                     <Menu
                         theme="dark"
@@ -37,19 +41,25 @@ class App extends Component {
 
 
                             <div className="site-layout-content">
-                                <Row gutter={[{xs: 8, sm: 16, md: 24, lg: 32}, 16]}>
-                                    <Col >
-                                        <Stats url="https://covid19.mathdro.id/api"></Stats>
-                                    </Col>
-                                </Row>
+
+
+                                <BangladeshComponent/>
+
+                                <TodoList/>
+
+                                {/*<Row gutter={[{xs: 8, sm: 16, md: 24, lg: 32}, 16]}>*/}
+                                {/*    <Col >*/}
+                                {/*        <Stats url="https://covid19.mathdro.id/api"></Stats>*/}
+                                {/*    </Col>*/}
+                                {/*</Row>*/}
 
 
 
-                                <Row gutter={[{xs: 8, sm: 16, md: 24, lg: 32}, 16]}>
-                                    <Col>
-                                        <CountrySelector/>
-                                    </Col>
-                                </Row>
+                                {/*<Row gutter={[{xs: 8, sm: 16, md: 24, lg: 32}, 16]}>*/}
+                                {/*    <Col>*/}
+                                {/*        <CountrySelector/>*/}
+                                {/*    </Col>*/}
+                                {/*</Row>*/}
 
 
 

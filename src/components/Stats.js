@@ -1,14 +1,11 @@
 import React from "react";
 import useStats from "../utils/useStats";
-import {Card, Col, Row, Typography} from 'antd';
-import BarChart from "./BarChart";
-import Empty from "antd/es/empty";
-import GlobalLineChart from "./GlobalLineChart";
+import {Card, Col, Empty, Row, Typography} from 'antd';
+import GlobalSummaryDonutChart from "./global/GlobalSummaryDonutChart";
+import GlobalLineChart from "./global/GlobalLineChart";
 
 const { Text } = Typography;
 const { Title } = Typography;
-
-const style = {background: '#fff', padding: '8px'};
 
 
 function Stats({url}) {
@@ -21,20 +18,20 @@ function Stats({url}) {
     if (error) return <Empty/>;
 
     const active = stats.confirmed.value - stats.deaths.value - stats.recovered.value;
-
+    const responsiveGutter = [{xs: 8, sm: 16, md: 24, lg: 32}, {xs: 8, sm: 16, md: 24, lg: 32}];
     return (
         <div>
 
-            <Row type='flex' gutter={[{xs: 8, sm: 16, md: 24, lg: 32}, {xs: 8, sm: 16, md: 24, lg: 32}]}>
-                <Col >
-                    <Card type="inner" bodyStyle={{background: '#f0f2f5'}}>
-                        <Title level={4}>Global Statistics</Title>
-                    </Card>
-                </Col>
-            </Row>
+            {/*<Row type='flex' gutter={responsiveGutter}>*/}
+            {/*    <Col >*/}
+            {/*        <Card type="inner" bodyStyle={{background: '#f0f2f5'}}>*/}
+            {/*            <Title level={4}>Global Statistics</Title>*/}
+            {/*        </Card>*/}
+            {/*    </Col>*/}
+            {/*</Row>*/}
 
 
-            <Row type='flex' gutter={[{xs: 8, sm: 16, md: 24, lg: 32}, {xs: 8, sm: 16, md: 24, lg: 32}]}>
+            <Row type='flex' gutter={responsiveGutter}>
 
                 <Col xs={24} sm={24} md={6} lg={6} xl={6}>
                     <Card >
@@ -93,10 +90,6 @@ function Stats({url}) {
                 </Col>
 
 
-
-
-
-
                 <Col xs={24} sm={24} md={6} lg={6} xl={6}>
                     <Card>
                         <Row>
@@ -125,10 +118,10 @@ function Stats({url}) {
 
             </Row>
 
-            <Row type='flex' gutter={[16, 16]}>
+            <Row type='flex' gutter={responsiveGutter}>
                 <Col xs={24} sm={24} md={12} lg={12} xl={12}>
                     <Card >
-                        <BarChart
+                        <GlobalSummaryDonutChart
                             confirmed={stats.confirmed.value}
                             death={stats.deaths.value}
                             recovered={stats.recovered.value}
