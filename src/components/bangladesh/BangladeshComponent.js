@@ -16,7 +16,7 @@ let historicalDeathsArray = [];
 
 function BangladeshComponent() {
     const {stats, loading, error} = useStats('https://covid19.mathdro.id/api/countries/BD');
-    const {stats: todayStats, todayLoading, todayError} = useStats('https://corona.lmao.ninja/countries/bangladesh?strict=true');
+    // const {stats: todayStats, todayLoading, todayError} = useStats('https://corona.lmao.ninja/countries/bangladesh?strict=true');
 
     // const {stats: historicalStats, historicalLoading, historicalError} = useStats('https://corona.lmao.ninja/historical/bangladesh');
 
@@ -48,9 +48,9 @@ function BangladeshComponent() {
     });
 
 
-    if (loading || todayLoading ) return <Card active='true' loading='true'/>;
-    if (!stats || !todayStats ) return <Card active='true' loading='true'/>;
-    if (error || todayError ) return <Empty/>;
+    if (loading ) return <Card active='true' loading='true'/>;
+    if (!stats ) return <Card active='true' loading='true'/>;
+    if (error  ) return <Empty/>;
 
     // const historicalConfirmed = historicalStats.timeline.cases;
     // const historicalConfirmedArray = Object.entries(historicalConfirmed).map(([value, id]) => ({Date: value, type: 'Confirmed', value: historicalConfirmed[value]}));
