@@ -2,14 +2,14 @@ import React, {Component} from 'react';
 import './App.css';
 //import Stats from "./components/Stats";
 //import CountrySelector from "./components/country/CountrySelector";
-import {Layout, Menu} from 'antd';
+import {Avatar, Layout, Menu, Typography} from 'antd';
 import BangladeshComponent from "./components/bangladesh/BangladeshComponent";
 import TodoList from "./components/bangladesh/TodoList";
 import SeoHeader from "./components/SeoHeader";
 
+const { Title } = Typography;
 
 //const style = { background: '#fff', padding: '8px 0' };
-
 
 const {Header, Footer, Content} = Layout;
 
@@ -18,9 +18,13 @@ class App extends Component {
         return (
 
             <Layout>
-                <SeoHeader/>
-                <Header className="header" style={{background: '#013897'}}>
-                    <div className="logo"/>
+
+                <Header className="header" style={{background: '#fff'}}>
+                    <div className="logo">
+                        <Avatar src={process.env.PUBLIC_URL + '/logo.png'} alt="Coronavirus"/>
+                    </div>
+
+
                     <Menu
                         theme="dark"
                         mode="horizontal"
@@ -28,6 +32,7 @@ class App extends Component {
                         style={{lineHeight: '64px'}}
                     >
                     </Menu>
+                    <SeoHeader/>
                 </Header>
                 <Content >
 
