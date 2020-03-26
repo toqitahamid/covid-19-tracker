@@ -18,16 +18,9 @@ function BangladeshComponent() {
     const {stats, loading, error} = useStats('https://covid19.mathdro.id/api/countries/BD');
     const {stats: todayStats, todayLoading, todayError} = useStats('https://corona.lmao.ninja/countries/bangladesh?strict=true');
 
-    const {stats: historicalStats, historicalLoading, historicalError} = useStats('https://corona.lmao.ninja/historical/bangladesh');
-    let resultData = 0;
-
+    // const {stats: historicalStats, historicalLoading, historicalError} = useStats('https://corona.lmao.ninja/historical/bangladesh');
 
     const todayDate = new Date().getDate();
-    // /console.log(time);
-    //var today = new Date();
-    //console.log(today)
-
-
 
 
     readRemoteFile('https://raw.githubusercontent.com/ulklc/covid19-timeseries/master/countryReport/country/BD.csv', {
@@ -50,34 +43,14 @@ function BangladeshComponent() {
             historicalDeathsArray = Object.entries(results.data).map(([id, value]) => ({
                 Date: results.data[id].day, type: 'Death', value: results.data[id].death
             }));
-            //
-            // const nDate = new Date(historicalDeathsArray[0].Date);
-
-            // if (time >= nDate){
-            //     //console.log(stats);
-            // }
-
-            //console.log(nDate);
-
-
         }
 
     });
 
 
-
-
-
-
-
-    //https://corona.lmao.ninja/historical/Bangladesh
-    //https://covid19.mathdro.id/api
-    //
-    if (loading || todayLoading|| historicalLoading) return <Card active='true' loading='true'/>;
-    if (!stats || !todayStats || !historicalStats) return <Card active='true' loading='true'/>;
-    if (error || todayError || historicalError) return <Empty/>;
-
-
+    if (loading || todayLoading ) return <Card active='true' loading='true'/>;
+    if (!stats || !todayStats ) return <Card active='true' loading='true'/>;
+    if (error || todayError ) return <Empty/>;
 
     // const historicalConfirmed = historicalStats.timeline.cases;
     // const historicalConfirmedArray = Object.entries(historicalConfirmed).map(([value, id]) => ({Date: value, type: 'Confirmed', value: historicalConfirmed[value]}));
@@ -85,14 +58,10 @@ function BangladeshComponent() {
     // const historicalRecovered = historicalStats.timeline.recovered;
     // const historicalRecoveredArray = Object.entries(historicalRecovered).map(([value, id]) => ({Date: value, type: 'Confirmed', value: historicalRecovered[value]}));
     //
-    //
     // const historicalDeaths = historicalStats.timeline.deaths;
     // const historicalDeathsArray = Object.entries(historicalDeaths).map(([value, id]) => ({Date: value, type: 'Confirmed', value: historicalDeaths[value]}));
 
     //const historicalActiveArray = Object.entries(historicalConfirmed).map(([value, id  ]) => ({Date: value, type: 'Active', value: historicalConfirmed[value]-historicalDeaths[value]-historicalRecovered[value]}));
-
-
-
 
     const timelineConfirmed = historicalConfirmedArray.filter(function (data, index) {
 
@@ -116,8 +85,6 @@ function BangladeshComponent() {
         return itemTime >= filterTime ;
     });
 
-
-
     const timelineActive = historicalActiveArray.filter(function (data, index) {
 
         let itemTime = new Date(data.Date).getTime();
@@ -126,31 +93,15 @@ function BangladeshComponent() {
     });
 
 
-    // console.log(timelineActive);
-
-    const todayCases = todayStats.todayCases;
-    const todayDeaths = todayStats.todayDeaths;
+    // const todayCases = todayStats.todayCases;
+    // const todayDeaths = todayStats.todayDeaths;
     const active = stats.confirmed.value - stats.deaths.value - stats.recovered.value;
 
-
-    const last = new Date(stats.lastUpdate).getDate();
-    //console.log(stats);
-    //console.log(last);
-
-
     let yesterday = new Date(historicalConfirmedArray[historicalConfirmedArray.length - 1].Date).getDate()
-
-    //let backupYesterday = new Date(historicalConfirmedArray[historicalConfirmedArray.length - 2].Date).getDate()
-
-    let dayBeforeYesterday = new Date(historicalConfirmedArray[historicalConfirmedArray.length - 2].Date).getDate()
-
-
-
     let todayConfirmedNew = 0;
     let todayRecoveredNew = 0;
     let todayDeathsNew = 0;
     let todayActiveNew = 0;
-
 
     let yesterdayConfirmed = 0;
     let yesterdayRecovered= 0;
@@ -171,7 +122,6 @@ function BangladeshComponent() {
     let lastThirtyDayRecovered= 0;
     let lastThirtyDayDeaths = 0;
     let lastThirtyDayActive = 0;
-
 
     if ((todayDate - yesterday) === 1){
         todayConfirmedNew = stats.confirmed.value - historicalConfirmedArray[historicalConfirmedArray.length - 1].value;
@@ -200,13 +150,10 @@ function BangladeshComponent() {
             lastThreeDayDeaths += tempDeathsData;
             lastThreeDayActive += + tempActiveData;
         }
-
-
         startIndex = historicalConfirmedArray.length - 8;
 
 
         /*Last 7 Days*/
-
         for (let x = startIndex; x < arraySize; x++)   {
             let tempConfirmedData = parseInt(historicalConfirmedArray[x+1].value) - parseInt(historicalConfirmedArray[x].value);
             let tempRecoveredData = parseInt(historicalRecoveredArray[x+1].value) - parseInt(historicalRecoveredArray[x].value);
@@ -218,15 +165,11 @@ function BangladeshComponent() {
             lastSevenDayRecovered += tempRecoveredData;
             lastSevenDayDeaths += tempDeathsData;
             lastSevenDayActive += + tempActiveData;
-
         }
-
-
         startIndex = historicalConfirmedArray.length - 31;
 
 
         /*Last 30 Days*/
-
         for (let x = startIndex; x < arraySize; x++)   {
             let tempConfirmedData = parseInt(historicalConfirmedArray[x+1].value) - parseInt(historicalConfirmedArray[x].value);
             let tempRecoveredData = parseInt(historicalRecoveredArray[x+1].value) - parseInt(historicalRecoveredArray[x].value);
@@ -244,6 +187,7 @@ function BangladeshComponent() {
 
 
     }
+    /*possible error in month change. 1st day of the month and last day of the month*/
     else if ((todayDate - yesterday) === 2){
         todayConfirmedNew = '0';
         todayRecoveredNew = '0';
@@ -309,10 +253,6 @@ function BangladeshComponent() {
 
 
     }
-
-    console.log(todayConfirmedNew)
-
-
 
     return (
         <div>

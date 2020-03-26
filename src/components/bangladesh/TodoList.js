@@ -104,7 +104,6 @@ function TodoList() {
                                             <Card
                                                 hoverable={false}
                                                 bordered={false}
-                                                hoverable={false}
                                                 cover={<img alt="example" src={process.env.PUBLIC_URL + '/06.png'} />}
                                             >
                                                 <Meta style={testStyle} description="Coronavirus COVID-19" />
