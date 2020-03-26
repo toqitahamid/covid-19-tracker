@@ -10,6 +10,7 @@
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "react-flags-select": "^1.1.12",
+    "react-helmet": "^5.2.1",
     "react-papaparse": "^3.0.0",
     "react-scripts": "2.1.1",
     "styled-components": "^5.0.1"

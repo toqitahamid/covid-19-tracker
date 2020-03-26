@@ -16,7 +16,7 @@ function TodoList() {
         <div>
 
             <Row type='flex' gutter={responsiveGutter}>
-                <Col xs={24} sm={24} md={8} lg={8} xl={8} xxl={8}>
+                <Col xs={24} sm={24} md={24} lg={24} xl={24} xxl={24}>
                     <Card>
 
                                 <Row >
@@ -29,7 +29,7 @@ function TodoList() {
                                 </Row>
 
                                 <Row type='flex'>
-                                    <Col xs={12} sm={12} md={8} lg={8} xl={8} xxl={8}>
+                                    <Col xs={12} sm={12} md={8} lg={4} xl={4} xxl={4}>
                                         <div>
                                             <Card
                                                 hoverable={false}
@@ -42,7 +42,7 @@ function TodoList() {
                                         </div>
                                     </Col>
 
-                                    <Col xs={12} sm={12} md={8} lg={8} xl={8} xxl={8}>
+                                    <Col xs={12} sm={12} md={8} lg={4} xl={4} xxl={4}>
                                         <div>
                                             <Card
                                                 hoverable={false}
@@ -56,7 +56,7 @@ function TodoList() {
 
                                     </Col>
 
-                                    <Col xs={12} sm={12} md={8} lg={8} xl={8} xxl={8}>
+                                    <Col xs={12} sm={12} md={8} lg={4} xl={4} xxl={4}>
                                         <div>
                                             <Card
                                                 hoverable={false}
@@ -71,7 +71,7 @@ function TodoList() {
                                     </Col>
 
 
-                                    <Col xs={12} sm={12} md={8} lg={8} xl={8} xxl={8}>
+                                    <Col xs={12} sm={12} md={8} lg={4} xl={4} xxl={4}>
                                         <div>
                                             <Card
                                                 hoverable={false}
@@ -85,7 +85,7 @@ function TodoList() {
 
                                     </Col>
 
-                                    <Col xs={12} sm={12} md={8} lg={8} xl={8} xxl={8}>
+                                    <Col xs={12} sm={12} md={8} lg={4} xl={4} xxl={4}>
                                         <div>
                                             <Card
                                                 hoverable={false}
@@ -99,7 +99,7 @@ function TodoList() {
 
                                     </Col>
 
-                                    <Col xs={12} sm={12} md={8} lg={8} xl={8} xxl={8}>
+                                    <Col xs={12} sm={12} md={8} lg={4} xl={4} xxl={4}>
                                         <div>
                                             <Card
                                                 hoverable={false}
