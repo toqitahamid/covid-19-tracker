@@ -5,23 +5,20 @@ import './App.css';
 import {Layout, Menu} from 'antd';
 import BangladeshComponent from "./components/bangladesh/BangladeshComponent";
 import TodoList from "./components/bangladesh/TodoList";
+import SeoHeader from "./components/SeoHeader";
 
-//import { UserOutlined, LaptopOutlined, NotificationOutlined } from '@ant-design/icons';
 
 //const style = { background: '#fff', padding: '8px 0' };
 
 
-
 const {Header, Footer, Content} = Layout;
-
-//const {SubMenu} = Menu;
-
 
 class App extends Component {
     render() {
         return (
 
             <Layout>
+                <SeoHeader/>
                 <Header className="header" style={{background: '#013897'}}>
                     <div className="logo"/>
                     <Menu

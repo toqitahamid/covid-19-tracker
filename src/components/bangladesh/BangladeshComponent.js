@@ -260,7 +260,7 @@ function BangladeshComponent() {
 
             <Row type='flex' gutter={responsiveGutter}>
 
-                <Col xs={24} sm={24} md={6} lg={6} xl={6} xxl={6}>
+                <Col xs={24} sm={24} md={12} lg={12} xl={6} xxl={6}>
                     <Card >
                         <Row>
                             <Col span={12}>
@@ -333,7 +333,7 @@ function BangladeshComponent() {
                     </Card>
                 </Col>
 
-                <Col xs={24} sm={24} md={6} lg={6} xl={6}>
+                <Col xs={24} sm={24} md={12} lg={12} xl={6} xxl={6}>
                     <Card>
 
                         <Row>
@@ -402,7 +402,7 @@ function BangladeshComponent() {
                     </Card>
                 </Col>
 
-                <Col xs={24} sm={24} md={6} lg={6} xl={6} xxl={6}>
+                <Col xs={24} sm={24} md={12} lg={12} xl={6} xxl={6}>
                     <Card>
 
                         <Row>
@@ -481,7 +481,7 @@ function BangladeshComponent() {
                 </Col>
 
 
-                <Col xs={24} sm={24} md={6} lg={6} xl={6} xxl={6}>
+                <Col xs={24} sm={24} md={12} lg={12} xl={6} xxl={6}>
                     <Card>
 
                         <Row>
